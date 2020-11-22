@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".features.searchImage.SearchImagesActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_searchTextMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/viewSpacing_16dp"
+        android:background="@drawable/bg_stroke_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_search_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_toStartOf="@id/img_searchIcon"
+            android:background="@null"
+            android:hint="search by keyword..."
+            android:paddingTop="@dimen/viewSpacing_5dp"
+            android:paddingBottom="@dimen/viewSpacing_5dp"
+            android:textSize="@dimen/textSpacing_18sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_searchIcon"
+            android:layout_width="@dimen/viewSpacing_40dp"
+            android:layout_height="@dimen/viewSpacing_40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/viewSpacing_8dp"
+            android:padding="@dimen/viewSpacing_8dp"
+            app:srcCompat="@drawable/ic_action_search" />
+    </RelativeLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progress_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_searchTextMain" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_imagesList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/viewSpacing_30dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_searchTextMain"
+        app:spanCount="4"
+        tools:listitem="@layout/layout_search_image_details" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_gallery_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rl_searchTextMain"
+        tools:text="error" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
